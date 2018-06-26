@@ -24,9 +24,9 @@ app.use((req,res,next)=>{
   console.log(`${now}: ${req.method} ${req.url}`);
   next();
 })
-app.use((req,res,next)=>{
-  res.render('maintanence.hbs');
-});
+//app.use((req,res,next)=>{
+//  res.render('maintanence.hbs');
+//});
 
 //home
 app.get('/',(req,res)=>{
@@ -42,6 +42,11 @@ app.get('/bad',(req,res)=>{
       Errormessage:'A bad request is made cant send appropriate response',
     }
   );
+});
+
+//projects
+app.get('/projects',(req,res)=>{
+  res.render('projects.hbs',{pagetitle:'Projects'});
 });
 app.listen(port,()=>{
   console.log(`Server is up and running on port ${port}`);
